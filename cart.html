@@ -168,6 +168,7 @@
     } else {
         cartItemsContainer.innerHTML = cart.map(item => `
             <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
                 <div class="item-details">
                     <p class="item-name">${item.name}</p>
                     <p class="item-price">${item.price}</p>
