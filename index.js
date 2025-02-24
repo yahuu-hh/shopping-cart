@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const item = button.closest('.item');
             const itemName = item.querySelector('.item-name').textContent;
             const itemPrice = item.querySelector('.item-price').textContent;
+            const itemImage = item.querySelector('.item-img').src;
 
             // 从本地存储中获取购物车数据
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
