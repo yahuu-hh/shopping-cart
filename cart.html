@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/mi.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cart-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Cart Items */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .cart-item .item-details {
+            flex: 1;
+        }
+
+        .cart-item .item-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .cart-item .item-price {
+            color: #e67e22;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .cart-item .item-quantity {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Buttons */
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .cart-actions button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .cart-actions .checkout-btn {
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+        .cart-actions .checkout-btn:hover {
+            background-color: #219653;
+        }
+
+        .cart-actions .clear-cart-btn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .cart-actions .clear-cart-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Empty Cart Message */
+        .empty-cart-message {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            padding: 50px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item img {
+                margin-bottom: 10px;
+            }
+
+            .cart-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cart-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>购物车</h1>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="cart-actions">
+            <button class="clear-cart-btn" onclick="clearCart()">清空购物车</button>
+            <button class="checkout-btn" onclick="checkout()">去结算</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to display cart items
+        function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="empty-cart-message">您的购物车是空的。</p>';
+    } else {
+        cartItemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <div class="item-details">
+                    <p class="item-name">${item.name}</p>
+                    <p class="item-price">${item.price}</p>
+                    <p class="item-quantity">数量: ${item.quantity}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+}
+
+        // Function to clear the cart
+        function clearCart() {
+            localStorage.removeItem('cart');
+            displayCartItems();
+            alert('购物车已清空！');
+        }
+
+        // Function to handle checkout
+        function checkout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert('您的购物车是空的，无法结算。');
+            } else {
+                alert('结算功能暂未实现，请稍后再试。');
+            }
+        }
+
+        // Display cart items when the page loads
+        document.addEventListener('DOMContentLoaded', displayCartItems);
+    </script>
+</body>
+</html>

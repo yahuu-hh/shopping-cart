@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦幻工坊登录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            height: 100%;
+            background: linear-gradient(135deg, #617575, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-wrapper {
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .left {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .left a {
+            color: #617575;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        .left a:hover {
+            color: #000000;
+        }
+        .header {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .form-wrapper {
+            margin-bottom: 20px;
+        }
+        .input-item {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .input-item:focus {
+            border-color: #617575;
+        }
+        .input-item::placeholder {
+            color: #999;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #617575, #000000);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, #000000, #617575);
+        }
+        .msg {
+            font-size: 14px;
+            color: #666;
+        }
+        .msg a {
+            color: #617575;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .msg a:hover {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="left">
+                <a href="index.html">返回</a>
+            </div>
+            <div class="header">梦幻工坊登录</div>
+            <div class="form-wrapper">
+                <input type="text" name="用户名" placeholder="用户名" class="input-item">
+                <input type="password" name="密码" placeholder="密码" class="input-item">
+                <button class="btn">登录</button>
+            </div>
+            <div class="msg">
+                没有账号？<a href="zc.html">注册</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
